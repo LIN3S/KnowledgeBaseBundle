@@ -1,0 +1,33 @@
+services:
+    lin3s_knowledge_base.builder.documentation:
+        class: LIN3S\KnowledgeBase\Builder\DocumentationBuilder
+        arguments:
+            - @lin3s_knowledge_base.iterator.document
+            - @lin3s_knowledge_base.registry.generator
+
+    lin3s_knowledge_base.iterator.document:
+        class: LIN3S\KnowledgeBase\Iterator\DocumentIterator
+        arguments:
+            - @lin3s_knowledge_base.configuration
+
+    lin3s_knowledge_base.loader.default:
+        class: LIN3S\KnowledgeBase\Loader\DefaultLoader
+        arguments:
+            - @lin3s_knowledge_base.configuration
+
+    lin3s_knowledge_base.registry.generator:
+        class: LIN3S\KnowledgeBase\Registry\GeneratorRegistry
+
+    lin3s_knowledge_base.generator.html:
+        class: LIN3S\KnowledgeBase\Generator\HTMLGenerator
+        arguments:
+            - @lin3s_knowledge_base.configuration
+        tags:
+            - { name: lin3s_knowledge_base.generator, label: html }
+
+    lin3s_knowledge_base.generator.menu:
+        class: LIN3S\KnowledgeBase\Generator\MenuGenerator
+        arguments:
+            - @lin3s_knowledge_base.configuration
+        tags:
+            - { name: lin3s_knowledge_base.generator, label: menu }

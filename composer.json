@@ -1,0 +1,22 @@
+{
+    "name": "lin3s/knowledge-base-bundle",
+    "description": "PHP Bundle built on top of LIN3S Knowledge Base",
+    "homepage": "http://www.lin3s.com",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "LIN3S",
+            "email": "info@lin3s.com",
+            "homepage": "https://lin3s.com"
+        }
+    ],
+    "require": {
+        "php":                          ">=5.4",
+
+        "lin3s/knowledge-base":         "~0.1"
+    },
+    "autoload": {
+        "psr-4": { "LIN3S\\KnowledgeBaseBundle\\": "" }
+    }
+}

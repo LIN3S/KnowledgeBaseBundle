@@ -1,0 +1,6 @@
+lin3s_knowledge_base_document:
+    path: /{path}
+    defaults: { _controller: LIN3SKnowledgeBaseBundle:Page:document }
+    methods: [GET]
+    requirements:
+      path: .+
