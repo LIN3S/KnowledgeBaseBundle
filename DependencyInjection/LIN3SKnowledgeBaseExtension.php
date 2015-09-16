@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Knowledge Base Bundle project.
+ *
+ * Copyright (c) 2015 LIN3S <info@lin3s.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace LIN3S\KnowledgeBaseBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Processor;
@@ -9,6 +18,14 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
+/**
+ * Class LIN3SKnowledgeBaseExtension
+ *
+ * Loads configuration and exposes the parameters retrieved from the config as
+ * 'lin3s_knowledge_base.configuration_parameters'. This will be used by ConfigurationCompilerPass.
+ *
+*@package LIN3S\KnowledgeBaseBundle\DependencyInjection
+ */
 class LIN3SKnowledgeBaseExtension extends Extension
 {
     /**

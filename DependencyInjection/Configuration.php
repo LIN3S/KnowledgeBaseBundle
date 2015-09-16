@@ -1,12 +1,31 @@
 <?php
 
+/*
+ * This file is part of the Knowledge Base Bundle project.
+ *
+ * Copyright (c) 2015 LIN3S <info@lin3s.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace LIN3S\KnowledgeBaseBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
+/**
+ * Class Configuration.
+ *
+ * Defines the config tree editable from the config.yml file.
+ *
+ * @package LIN3S\KnowledgeBaseBundle\DependencyInjection
+ */
 class Configuration implements ConfigurationInterface
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();

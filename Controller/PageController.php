@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Knowledge Base project.
+ * This file is part of the Knowledge Base Bundle project.
  *
  * Copyright (c) 2015 LIN3S <info@lin3s.com>
  *
