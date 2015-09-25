@@ -29,7 +29,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('lin3s_knowledge_base')
+        $treeBuilder->root('lin3_s_knowledge_base')
             ->children()
                 ->scalarNode('docs_path')
                     ->defaultValue('%kernel.root_dir%/../docs/')

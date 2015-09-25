@@ -27,6 +27,22 @@ use Symfony\Component\HttpFoundation\Response;
 class PageController extends Controller
 {
     /**
+     * Index action.
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function indexAction()
+    {
+        $configuration = $this->get('lin3s_knowledge_base.configuration');
+
+        return new Response($configuration->template()->render([
+            'menu'          => $this->get('lin3s_knowledge_base.loader.menu')->get('/'),
+            'html'          => '<h1>This is our Knowledge Base landing page</h1>',
+            'configuration' => $configuration
+        ]));
+    }
+
+    /**
      * Document action, renders the page of request given.
      *
      * @param string $path Path to the requested document
@@ -36,9 +52,12 @@ class PageController extends Controller
     public function documentAction($path)
     {
         $configuration = $this->get('lin3s_knowledge_base.configuration');
-        return new Response($configuration->template()->render(
-            $this->get('lin3s_knowledge_base.loader.default')->getTemplateData($path)
-        ));
+
+        return new Response($configuration->template()->render([
+            'menu'          => $this->get('lin3s_knowledge_base.loader.menu')->get($path),
+            'html'          => $this->get('lin3s_knowledge_base.loader.html')->get($path),
+            'configuration' => $configuration
+        ]));
     }
 
     /**
@@ -51,6 +70,7 @@ class PageController extends Controller
     public function assetAction($path)
     {
         $configuration = $this->get('lin3s_knowledge_base.configuration');
+
         return new Response(file_get_contents($configuration->docsPath() . $path));
     }
 

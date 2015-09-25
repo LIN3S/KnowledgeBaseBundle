@@ -6,6 +6,12 @@
 # file that was distributed with this source code.
 #
 # @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+# @author Beñat Espiña <benatespina@gmail.com>
+
+lin3s_knowledge_base_index:
+    path: /
+    defaults: { _controller: LIN3SKnowledgeBaseBundle:Page:index }
+    methods: [GET]
 
 lin3s_knowledge_base_document:
     path: /{path}

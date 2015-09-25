@@ -39,10 +39,12 @@ class AssetCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $template = $this->getContainer()->get('lin3s_knowledge_base.configuration')->template();
+        $config = $this->getContainer()->get('lin3s_knowledge_base.configuration');
+        $rootDir = $this->getContainer()->get('kernel')->getRootDir();
+        $template = $config->template();
 
-        $reflectionClass = new \ReflectionClass($this);
-        $targetDirectory = dirname($reflectionClass->getFileName()) . '/../../../../web/templates/' . $template->name();
+        $targetDirectory = $rootDir . '/../web/' . $config->assetsBaseUrl() . '/' . $template->name();
+
         $fileSystem = new Filesystem();
 
         try {

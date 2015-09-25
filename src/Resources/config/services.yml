@@ -19,8 +19,13 @@ services:
         arguments:
             - @lin3s_knowledge_base.configuration
 
-    lin3s_knowledge_base.loader.default:
-        class: LIN3S\KnowledgeBase\Loader\DefaultLoader
+    lin3s_knowledge_base.loader.html:
+        class: LIN3S\KnowledgeBase\Loader\HtmlLoader
+        arguments:
+            - @lin3s_knowledge_base.configuration
+
+    lin3s_knowledge_base.loader.menu:
+        class: LIN3S\KnowledgeBase\Loader\MenuLoader
         arguments:
             - @lin3s_knowledge_base.configuration
 

@@ -18,6 +18,7 @@ use Prophecy\Argument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * Spec class of asset command.
@@ -43,6 +44,7 @@ class AssetCommandSpec extends ObjectBehavior
 
     function it_executes(
         ContainerInterface $container,
+        KernelInterface $kernel,
         InputInterface $input,
         OutputInterface $output,
         Configuration $configuration,
@@ -50,6 +52,8 @@ class AssetCommandSpec extends ObjectBehavior
     )
     {
         $container->get('lin3s_knowledge_base.configuration')->shouldBeCalled()->willReturn($configuration);
+        $container->get('kernel')->shouldBeCalled()->willReturn($kernel);
+        $configuration->assetsBaseUrl()->shouldBeCalled()->willReturn('/template');
         $configuration->template()->shouldBeCalled()->willReturn($template);
         $template->name()->shouldBeCalled()->willReturn(Argument::any());
         $input->bind(Argument::any())->shouldBeCalled();

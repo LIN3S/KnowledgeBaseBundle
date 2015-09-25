@@ -40,18 +40,45 @@ class PageControllerSpec extends ObjectBehavior
         $this->shouldHaveType('Symfony\Bundle\FrameworkBundle\Controller\Controller');
     }
 
-    function it_document_action(
+    function it_index_action(
         ContainerInterface $container,
         Configuration $configuration,
         TemplateInterface $template,
-        LoaderInterface $loader
+        LoaderInterface $menuLoader
     )
     {
         $container->get('lin3s_knowledge_base.configuration')->shouldBeCalled()->willReturn($configuration);
         $configuration->template()->shouldBeCalled()->willReturn($template);
-        $container->get('lin3s_knowledge_base.loader.default')->shouldBeCalled()->willReturn($loader);
-        $loader->getTemplateData('/')->shouldBeCalled()->willReturn(['Template data']);
-        $template->render(['Template data'])->shouldBeCalled()->willReturn('Template data render');
+        $container->get('lin3s_knowledge_base.loader.menu')->shouldBeCalled()->willReturn($menuLoader);
+        $menuLoader->get('/')->shouldBeCalled()->willReturn('Menu data');
+
+        $template->render([
+            'menu' => 'Menu data',
+            'html' => '<h1>This is our Knowledge Base landing page</h1>',
+            'configuration' => $configuration
+        ])->shouldBeCalled()->willReturn('Template data render');
+
+        $this->indexAction()->shouldReturnAnInstanceOf('Symfony\Component\HttpFoundation\Response');
+    }
+
+
+    function it_document_action(
+        ContainerInterface $container,
+        Configuration $configuration,
+        TemplateInterface $template,
+        LoaderInterface $menuLoader,
+        LoaderInterface $htmlLoader
+    )
+    {
+        $container->get('lin3s_knowledge_base.configuration')->shouldBeCalled()->willReturn($configuration);
+        $configuration->template()->shouldBeCalled()->willReturn($template);
+        $container->get('lin3s_knowledge_base.loader.menu')->shouldBeCalled()->willReturn($menuLoader);
+        $menuLoader->get('/')->shouldBeCalled()->willReturn('Menu data');
+        $container->get('lin3s_knowledge_base.loader.html')->shouldBeCalled()->willReturn($htmlLoader);
+        $htmlLoader->get('/')->shouldBeCalled()->willReturn('Template data');
+
+        $template->render(['menu' => 'Menu data', 'html' => 'Template data', 'configuration' => $configuration])
+            ->shouldBeCalled()->willReturn('Template data render');
 
         $this->documentAction('/')->shouldReturnAnInstanceOf('Symfony\Component\HttpFoundation\Response');
     }
