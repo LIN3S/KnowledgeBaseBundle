@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Knowledge Base Bundle project.
+ * This file is part of the Knowledge Base package.
  *
  * Copyright (c) 2015 LIN3S <info@lin3s.com>
  *
@@ -12,7 +12,6 @@
 namespace LIN3S\KnowledgeBaseBundle\Command;
 
 use LIN3S\KnowledgeBase\Builder\DocumentationBuilder;
-use LIN3S\KnowledgeBase\Configuration;
 use LIN3S\KnowledgeBase\Generator\HTMLGenerator;
 use LIN3S\KnowledgeBase\Generator\MenuGenerator;
 use LIN3S\KnowledgeBase\Iterator\DocumentIterator;
@@ -24,8 +23,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Documents command class.
  *
- * @author Gorka Laucirica <gorka@lin3s.com>
- * @author Beñat Espiña <bespina@lin3s.com>
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+ * @author Beñat Espiña <benatespina@gmail.com>
  */
 class DocCommand extends ContainerAwareCommand
 {

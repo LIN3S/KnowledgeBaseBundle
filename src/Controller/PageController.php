@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Knowledge Base Bundle project.
+ * This file is part of the Knowledge Base package.
  *
  * Copyright (c) 2015 LIN3S <info@lin3s.com>
  *
@@ -21,8 +21,8 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Page controller class.
  *
- * @author Gorka Laucirica <gorka@lin3s.com>
- * @author Beñat Espiña <bespina@lin3s.com>
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+ * @author Beñat Espiña <benatespina@gmail.com>
  */
 class PageController extends Controller
 {
@@ -44,7 +44,7 @@ class PageController extends Controller
     /**
      * Asset action, gets the asset of request given.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request The request
+     * @param string $path Path to the requested document
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */

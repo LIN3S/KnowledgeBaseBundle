@@ -1,8 +1,7 @@
 {
     "name": "lin3s/knowledge-base-bundle",
     "description": "PHP Bundle built on top of LIN3S Knowledge Base",
-    "homepage": "http://www.lin3s.com",
-    "type": "project",
+    "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
         {
@@ -12,11 +11,22 @@
         }
     ],
     "require": {
-        "php":                          ">=5.4",
+        "php":                      ">=5.4",
 
-        "lin3s/knowledge-base":         "~0.1"
+        "symfony/framework-bundle": "^2.7",
+        "lin3s/knowledge-base":     "^0.1"
+    },
+    "require-dev": {
+        "phpspec/phpspec":          "^2.3"
     },
     "autoload": {
-        "psr-4": { "LIN3S\\KnowledgeBaseBundle\\": "" }
+        "psr-4": {
+            "LIN3S\\KnowledgeBaseBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\LIN3S\\KnowledgeBaseBundle\\": "spec/"
+        }
     }
 }

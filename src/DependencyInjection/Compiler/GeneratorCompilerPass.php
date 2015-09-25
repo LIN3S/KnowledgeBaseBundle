@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Knowledge Base Bundle project.
+ * This file is part of the Knowledge Base package.
  *
  * Copyright (c) 2015 LIN3S <info@lin3s.com>
  *
@@ -15,6 +15,14 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
+/**
+ * Class ConfigurationCompilerPass.
+ *
+ * Loads config from parameters and adds definitions in the container for template and configuration as
+ * 'lin3s_knowledge_base.template' and 'lin3s_knowledge_base.configuration' respectively.
+ *
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+ */
 class GeneratorCompilerPass implements CompilerPassInterface
 {
     /**

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Knowledge Base Bundle project.
+ * This file is part of the Knowledge Base package.
  *
  * Copyright (c) 2015 LIN3S <info@lin3s.com>
  *
@@ -19,8 +19,8 @@ use Symfony\Component\Filesystem\Filesystem;
 /**
  * Assets command class.
  *
- * @author Gorka Laucirica <gorka@lin3s.com>
- * @author Beñat Espiña <bespina@lin3s.com>
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+ * @author Beñat Espiña <benatespina@gmail.com>
  */
 class AssetCommand extends ContainerAwareCommand
 {
@@ -39,7 +39,6 @@ class AssetCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        /** @var \LIN3S\KnowledgeBase\Templating\TemplateInterface $template */
         $template = $this->getContainer()->get('lin3s_knowledge_base.configuration')->template();
 
         $targetDirectory = __DIR__ . '/../../../../web/templates/' . $template->name();

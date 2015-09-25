@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Knowledge Base Bundle project.
+ * This file is part of the Knowledge Base package.
  *
  * Copyright (c) 2015 LIN3S <info@lin3s.com>
  *
@@ -17,9 +17,9 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class LIN3SKnowledgeBaseBundle
+ * Class LIN3SKnowledgeBaseBundle.
  *
- * @package LIN3S\KnowledgeBaseBundle
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
 class LIN3SKnowledgeBaseBundle extends Bundle
 {

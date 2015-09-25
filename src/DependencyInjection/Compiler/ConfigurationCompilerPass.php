@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Knowledge Base Bundle project.
+ * This file is part of the Knowledge Base package.
  *
  * Copyright (c) 2015 LIN3S <info@lin3s.com>
  *
@@ -22,7 +22,7 @@ use Symfony\Component\DependencyInjection\Reference;
  * Loads config from parameters and adds definitions in the container for template and configuration as
  * 'lin3s_knowledge_base.template' and 'lin3s_knowledge_base.configuration' respectively.
  *
- * @package LIN3S\KnowledgeBaseBundle\DependencyInjection\Compiler
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
 class ConfigurationCompilerPass implements CompilerPassInterface
 {

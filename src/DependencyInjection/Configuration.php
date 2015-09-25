@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Knowledge Base Bundle project.
+ * This file is part of the Knowledge Base package.
  *
  * Copyright (c) 2015 LIN3S <info@lin3s.com>
  *
@@ -19,7 +19,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  *
  * Defines the config tree editable from the config.yml file.
  *
- * @package LIN3S\KnowledgeBaseBundle\DependencyInjection
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
 class Configuration implements ConfigurationInterface
 {
@@ -29,7 +29,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('lin3_s_knowledge_base')
+        $treeBuilder->root('lin3s_knowledge_base')
             ->children()
                 ->scalarNode('docs_path')
                     ->defaultValue('%kernel.root_dir%/../docs/')
@@ -45,6 +45,7 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end()
         ->end();
+
         return $treeBuilder;
     }
 }
