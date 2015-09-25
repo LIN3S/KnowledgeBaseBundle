@@ -41,7 +41,8 @@ class AssetCommand extends ContainerAwareCommand
     {
         $template = $this->getContainer()->get('lin3s_knowledge_base.configuration')->template();
 
-        $targetDirectory = __DIR__ . '/../../../../web/templates/' . $template->name();
+        $reflectionClass = new \ReflectionClass($this);
+        $targetDirectory = dirname($reflectionClass->getFileName()) . '/../../../../web/templates/' . $template->name();
         $fileSystem = new Filesystem();
 
         try {

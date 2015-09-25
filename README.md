@@ -65,4 +65,7 @@ $ php app/console lin3s:kb:assets:install
 ##How it works internally
 For further technical and theming details check [LIN3S Knowledge Base][1] documentation.
 
+##Licensing Options
+[![License](https://poser.pugx.org/lin3s/knowledge-base-bundle/license.svg)](https://github.com/LIN3S/KnowledgeBaseBundle/blob/master/LICENSE)
+
 [1]: http://github.com/LIN3S/KnowledgeBase
