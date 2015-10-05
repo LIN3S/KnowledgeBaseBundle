@@ -19,3 +19,8 @@ lin3s_knowledge_base_document:
     methods: [GET]
     requirements:
         path: .+
+
+lin3s_knowledge_base_load_docs:
+    path: /load-docs
+    defaults: { _controller: LIN3SKnowledgeBaseBundle:Page:loadDocs }
+    methods: [GET]
