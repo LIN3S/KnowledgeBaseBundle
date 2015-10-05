@@ -8,6 +8,11 @@
 # @author Gorka Laucirica <gorka.lauzirika@gmail.com>
 # @author Beñat Espiña <benatespina@gmail.com>
 
+lin3s_knowledge_base_load_docs:
+    path: /load-docs
+    defaults: { _controller: LIN3SKnowledgeBaseBundle:Page:loadDocs }
+    methods: [GET]
+
 lin3s_knowledge_base_index:
     path: /
     defaults: { _controller: LIN3SKnowledgeBaseBundle:Page:index }
@@ -19,8 +24,3 @@ lin3s_knowledge_base_document:
     methods: [GET]
     requirements:
         path: .+
-
-lin3s_knowledge_base_load_docs:
-    path: /load-docs
-    defaults: { _controller: LIN3SKnowledgeBaseBundle:Page:loadDocs }
-    methods: [GET]

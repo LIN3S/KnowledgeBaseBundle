@@ -12,7 +12,6 @@
 namespace LIN3S\KnowledgeBaseBundle\Controller;
 
 use LIN3S\KnowledgeBase\Process\GitProcess;
-use LIN3S\KnowledgeBaseBundle\Command\DocCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
@@ -82,8 +81,7 @@ class PageController extends Controller
     public function loadDocsAction()
     {
         if (true === $result = GitProcess::updateModules()) {
-            $command = new DocCommand();
-            $result = 0 === $command->run(new ArrayInput([]), new NullOutput())
+            $result = 0 === $this->get('lin3s_knowledge_base.command.doc')->run(new ArrayInput([]), new NullOutput())
                 ? 'The docs are successfully loaded'
                 : 'Something wrong happens during the loading process';
         }

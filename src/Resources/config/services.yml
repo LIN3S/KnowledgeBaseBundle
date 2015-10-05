@@ -6,6 +6,7 @@
 # file that was distributed with this source code.
 #
 # @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+# @author Beñat Espiña <benatespina@gmail.com>
 
 services:
     lin3s_knowledge_base.builder.documentation:
@@ -45,3 +46,8 @@ services:
             - @lin3s_knowledge_base.configuration
         tags:
             - { name: lin3s_knowledge_base.generator, label: menu }
+
+    lin3s_knowledge_base.command.doc:
+        class: LIN3S\KnowledgeBaseBundle\Command\DocCommand
+        calls:
+            - [setContainer, ['@service_container']]
