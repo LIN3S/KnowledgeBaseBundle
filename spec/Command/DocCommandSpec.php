@@ -45,10 +45,11 @@ class DocCommandSpec extends ObjectBehavior
         InputInterface $input,
         OutputInterface $output,
         Configuration $configuration
-    )
-    {
+    ) {
         $container->get('lin3s_knowledge_base.configuration')->shouldBeCalled()->willReturn($configuration);
         $input->bind(Argument::any())->shouldBeCalled();
+        $input->hasArgument('command')->shouldBeCalled()->willReturn(true);
+        $input->getArgument('command')->shouldBeCalled()->willReturn('lin3s:kb:assets:install');
         $input->isInteractive()->shouldBeCalled()->willReturn(false);
         $input->validate()->shouldBeCalled();
         $output->writeln(Argument::any())->shouldBeCalled();

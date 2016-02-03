@@ -50,6 +50,18 @@ class PageController extends Controller
      */
     public function documentAction($path)
     {
+        $absolutePathFile = $this->get('kernel')->getRootDir() . '/../docs/' . $path;
+        if (file_exists($absolutePathFile)) {
+            $response = new Response();
+            $response->headers->set('Content-Type', mime_content_type($absolutePathFile));
+            $response->headers->set('Content-Disposition', 'inline;filename="' . $path . '";');
+            $response->headers->set('Content-length', filesize($absolutePathFile));
+            $response->sendHeaders();
+            $response->sendContent(readfile($absolutePathFile));
+
+            return $response;
+        }
+
         $configuration = $this->get('lin3s_knowledge_base.configuration');
 
         return new Response($configuration->template()->render([

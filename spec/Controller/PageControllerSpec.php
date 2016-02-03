@@ -17,6 +17,7 @@ use LIN3S\KnowledgeBase\Templating\TemplateInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 /**
  * Spec class of page controller.
@@ -45,17 +46,16 @@ class PageControllerSpec extends ObjectBehavior
         Configuration $configuration,
         TemplateInterface $template,
         LoaderInterface $menuLoader
-    )
-    {
+    ) {
         $container->get('lin3s_knowledge_base.configuration')->shouldBeCalled()->willReturn($configuration);
         $configuration->template()->shouldBeCalled()->willReturn($template);
         $container->get('lin3s_knowledge_base.loader.menu')->shouldBeCalled()->willReturn($menuLoader);
         $menuLoader->get('/')->shouldBeCalled()->willReturn('Menu data');
 
         $template->render([
-            'menu' => 'Menu data',
-            'html' => '<h1>This is our Knowledge Base landing page</h1>',
-            'configuration' => $configuration
+            'menu'          => 'Menu data',
+            'html'          => '<h1>This is our Knowledge Base landing page</h1>',
+            'configuration' => $configuration,
         ])->shouldBeCalled()->willReturn('Template data render');
 
         $this->indexAction()->shouldReturnAnInstanceOf('Symfony\Component\HttpFoundation\Response');
@@ -67,9 +67,10 @@ class PageControllerSpec extends ObjectBehavior
         Configuration $configuration,
         TemplateInterface $template,
         LoaderInterface $menuLoader,
-        LoaderInterface $htmlLoader
-    )
-    {
+        LoaderInterface $htmlLoader,
+        KernelInterface $kernel
+    ) {
+        $container->get('kernel')->shouldBeCalled()->willReturn($kernel);
         $container->get('lin3s_knowledge_base.configuration')->shouldBeCalled()->willReturn($configuration);
         $configuration->template()->shouldBeCalled()->willReturn($template);
         $container->get('lin3s_knowledge_base.loader.menu')->shouldBeCalled()->willReturn($menuLoader);

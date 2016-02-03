@@ -49,13 +49,14 @@ class AssetCommandSpec extends ObjectBehavior
         OutputInterface $output,
         Configuration $configuration,
         TemplateInterface $template
-    )
-    {
+    ) {
         $container->get('lin3s_knowledge_base.configuration')->shouldBeCalled()->willReturn($configuration);
         $container->get('kernel')->shouldBeCalled()->willReturn($kernel);
         $configuration->assetsBaseUrl()->shouldBeCalled()->willReturn('/template');
         $configuration->template()->shouldBeCalled()->willReturn($template);
         $template->name()->shouldBeCalled()->willReturn(Argument::any());
+        $input->hasArgument('command')->shouldBeCalled()->willReturn(true);
+        $input->getArgument('command')->shouldBeCalled()->willReturn('lin3s:kb:docs:load');
         $input->bind(Argument::any())->shouldBeCalled();
         $input->isInteractive()->shouldBeCalled()->willReturn(false);
         $input->validate()->shouldBeCalled();

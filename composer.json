@@ -17,7 +17,7 @@
         "lin3s/knowledge-base":     "^0.1"
     },
     "require-dev": {
-        "phpspec/phpspec":          "^2.3"
+        "phpspec/phpspec":          "2.3.*"
     },
     "autoload": {
         "psr-4": {
